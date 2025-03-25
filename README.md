@@ -1,23 +1,23 @@
-# Statistical Modeling in R
+# Rによる統計モデリング
 
-This project implements statistical models using R, focusing on nonlinear models and state space models for time series data.
+このプロジェクトは、時系列データに対して非線形モデルと状態空間モデルを実装するRプログラムです。
 
-## Overview
+## 概要
 
-The project analyzes the provided dataset (`WWdata.csv`) using various statistical modeling techniques:
+提供されたデータセット（`WWdata.csv`）を以下の統計モデリング手法で分析します：
 
-1. **Nonlinear Models**:
-   - Exponential model: Y ~ a * exp(b * X)
-   - Power model: Y ~ a * X^b
-   - Multi-predictor model: Y ~ a * X^b * exp(c * T) * W^d
+1. **非線形モデル**:
+   - 指数モデル: Y ~ a * exp(b * X)
+   - べき乗モデル: Y ~ a * X^b
+   - 多変量モデル: Y ~ a * X^b * exp(c * T) * W^d
 
-2. **State Space Models**:
-   - Basic local level model (DLM)
-   - Structural time series model with regression components
+2. **状態空間モデル**:
+   - 基本的なローカルレベルモデル（DLM）
+   - 回帰成分を含む構造時系列モデル
 
-## Requirements
+## 必要条件
 
-The following R packages are required:
+以下のRパッケージが必要です：
 - tidyverse
 - nlme
 - nls2
@@ -25,51 +25,51 @@ The following R packages are required:
 - forecast
 - KFAS
 - minpack.lm
-- pacman (used to install other packages)
+- pacman（他のパッケージのインストールに使用）
 
-## Data
+## データ
 
-The dataset (`WWdata.csv`) contains time series data with the following variables:
-- Year(t): Time period
-- Y: Response variable
-- X, T, W: Predictor variables
+データセット（`WWdata.csv`）には以下の変数が含まれています：
+- Year(t): 時点
+- Y: 応答変数
+- X, T, W: 説明変数
 
-## Usage
+## 使用方法
 
-1. Ensure R is installed on your system
-2. Make sure the data file is in the `assets` directory
-3. Run the script:
+1. Rがシステムにインストールされていることを確認
+2. データファイルが`assets`ディレクトリにあることを確認
+3. スクリプトを実行：
 
 ```bash
-Rscript statistical_models.R
+Rscript 統計モデル.R
 ```
 
-## Output
+## 出力
 
-The script will:
-1. Read and display summary statistics for the data
-2. Create exploratory data visualizations in the `plots` directory
-3. Fit nonlinear models and display results
-4. Fit state space models and display results
-5. Provide a framework for model comparison
+スクリプトは以下の処理を行います：
+1. データの読み込みと要約統計量の表示
+2. `plots`ディレクトリに探索的データ可視化を生成
+3. 非線形モデルのフィッティングと結果の表示
+4. 状態空間モデルのフィッティングと結果の表示
+5. モデル比較のためのフレームワークを提供
 
-## Files
+## ファイル
 
-- `statistical_models.R`: Main R script for statistical modeling
-- `assets/WWdata.csv`: Data file
-- `plots/`: Directory containing generated plots
+- `統計モデル.R`: 統計モデリングのメインスクリプト
+- `assets/WWdata.csv`: データファイル
+- `plots/`: 生成されたプロットを保存するディレクトリ
 
-## Model Details
+## モデルの詳細
 
-### Nonlinear Models
-The script fits several forms of nonlinear models to understand the relationship between the response variable (Y) and predictors (X, T, W). R-squared values are calculated to assess model fit.
+### 非線形モデル
+スクリプトは応答変数（Y）と説明変数（X, T, W）の関係を理解するために、いくつかの非線形モデルをフィッティングします。モデルの適合度はR二乗値で評価されます。
 
-### State Space Models
-The state space models are implemented using both the dlm package (for basic local level models) and the KFAS package (for structural time series models with regression components). These models are useful for understanding the underlying structure of the time series and making forecasts.
+### 状態空間モデル
+状態空間モデルは、dlmパッケージ（基本的なローカルレベルモデル用）とKFASパッケージ（回帰成分を含む構造時系列モデル用）の両方を使用して実装されています。これらのモデルは時系列の基礎構造を理解し、予測を行うのに役立ちます。
 
-## Model Comparison
-Models are compared based on:
-- Information criteria (AIC, BIC)
-- Prediction accuracy (RMSE, MAE)
-- Residual diagnostics
-- Cross-validation results 
+## モデルの比較
+モデルは以下の基準で比較されます：
+- 情報量基準（AIC、BIC）
+- 予測精度（RMSE、MAE）
+- 残差診断
+- 交差検証結果 
